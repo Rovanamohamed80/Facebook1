@@ -56,9 +56,9 @@ const logoutUser = async (req, res) => {
           include: [
             {
               model: postModel,
-              where: { id: postId }, // Filter post by ID
+              where: { id: postId }, 
               include: {
-                model: commentModel, // Include comments within the post
+                model: commentModel, 
               },
             },
           ],
@@ -94,52 +94,3 @@ export {
     getspecificuserWithspecificPost,
     getusersWithall
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const addUser = async (req, res) => {
-//   const { username, email, password } = req.body;
-//     const hashedPass = bcrypt.hashSync(password, 8);
-//     const [user, created] = await userModel.findOrCreate({
-//       where: {
-//         username,email
-//       },
-//       defaults: {
-//         password: hashedPass
-//       }
-//     });
-//     if (!created) {
-//       return res.status(409).json({ message: "User already exists" });
-//     }
-//     return res.status(201).json({ message: "User created successfully", user });
-// };
-
-
-
-//    const logoutUser = async(req,res)=>{
-//     const {id} =req.query;
-//     const loginUser = await userModel.update(
-//       {login:false},
-//       {where: {id}}
-//     )
-//     return res.status(201).json({message: "user logout successfully",user:loginUser})
-   
-//    }  
